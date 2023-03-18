@@ -30,8 +30,15 @@ function totalPaid (purchase1, purchase2, discount) { //here I am allowed to "pl
 let amountOwed = totalPaid(10,100,50)
 console.log(`After adding the cost of all products and applying a discount, the total amount owed is ${amountOwed}`)
 //still block scoped, still a function
-doMoreMath = (a, b) => a * b    //best when you only need to return one thing
+doMoreMath = (a, b) => a * b    //best for single expression, use curly braces for multi function
  
 
 console.log(doMoreMath (20, 30))
 // console.log(result) //was not captured as a variable on global scope, will not work
+
+arrowTaxes = (a) => a *.0798 
+console.log(arrowTaxes (1000)) //works perfectly here as it is simple multiplication
+
+arrowPaid = (purchase1, purchase2, discount) => ((purchase1+purchase2)-discount) 
+console.log(arrowPaid(10000,100,50)) //still works great, still simple enough
+//must really be great for memory use, less lines = less to process = probably less processing power needed
