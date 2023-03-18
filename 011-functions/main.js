@@ -29,3 +29,9 @@ function totalPaid (purchase1, purchase2, discount) { //here I am allowed to "pl
 }
 let amountOwed = totalPaid(10,100,50)
 console.log(`After adding the cost of all products and applying a discount, the total amount owed is ${amountOwed}`)
+//still block scoped, still a function
+doMoreMath = (a, b) => a * b    //best when you only need to return one thing
+ 
+
+console.log(doMoreMath (20, 30))
+// console.log(result) //was not captured as a variable on global scope, will not work
