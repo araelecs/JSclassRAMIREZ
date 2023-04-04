@@ -35,7 +35,8 @@ const averageCost = () => {
     for (let i = 0; i < dataCost.length; i++){
         totalCost = totalCost + dataCost[i]
     }
-    updateDOM(` Your total cost is $${totalCost}.`)
+    let averageCost = (totalCost/dataCost.length)
+    updateDOM(` Your average trip cost is $${Math.round(averageCost)}.`)
 }
 
 
