@@ -1,1 +1,5 @@
 #I love devtools, I appreciate the fact that I can see the loop in action step by step
+
+#I feel like I understood the majority of the content this week. Something that was odd (which I have fixed) was that my output onto the DOM was clumping up. This was due to the fact that I though that I could replace the "p" for appending with my own variables. As soon as I changed them back to "p", it returned to normal. I really like arrays and the fact that we can store information in them and then pull that information back up again when we need it. I'm looking forward to being able to put all of these tools together and improving the mileage program.
+
+#I feel like the refactor was a bit confusing at first. After I looked at the code for a bit and understood what was happening it was a lot easier to understand as there was less code and multiple functions were universal. At first I didnt understand what the "arr" was for in my CALC_SUM function. When I realized that I have the plug it an array in the average function, it made a lot of sense and I was able to the appreciate the fact that I had a universal sum formula.

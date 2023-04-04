@@ -1,5 +1,5 @@
-const dataMPG = [] //globally scoped, anything can access
-const dataCost = []
+const DATA_MPG = [] //globally scoped, anything can access //SETTING ALL CONSTS TO UPPERCASE AND UNDERSCORE IS STANDARD
+const DATA_COST = []
 const updateDOM = (input) => {
     const divEl = document.querySelector('#output') 
      const p = document.createElement('p')
@@ -13,17 +13,26 @@ const mileage = (miles, gallons, gasPrice = 4.95) => {
     const tripCost = gallons * gasPrice
     updateDOM(` You purchased ${gallons} gallons of fuel at a price of ${gasPrice} and traveled a total of ${miles} miles.`)
     updateDOM(` Your current MPG is ${mpg}, your total cost is $${tripCost}.`)
-    dataMPG.push(mpg) 
-    dataCost.push(tripCost) //separate arrays = more flexible
+    DATA_MPG.push(mpg) 
+    DATA_COST.push(tripCost) //separate arrays = more flexible
 }
 
-const averageMPG = () => {
-    let totalMPG = 0 //move this outside so that it reestablishes each time
-    for (let i = 0; i < dataMPG.length; i++){//++ is incrementer or afterthought, it adds 1 every time //i < 10 will force a the first 10 values of the array to pass through i =(0-9) Will now change this to dataMPG.length so that it limits the loop to the number of values in the array, will not get NaN
-        totalMPG = totalMPG + dataMPG[i] //is adding each value within array every time it loops, sick
+const CALC_SUM = (arr) => { //arr will be replaced with whatever array is mentioned in the averageCalc formula, in this case DATA_MPG and DATA_COST
+    let sum = 0
+    for (let i = 0; i < arr.length; i++){ //will calculate the sum before
+        sum = sum + arr[i]
     }
-    let averageMPG = (totalMPG/dataMPG.length)
+    return sum
+}//will return the sum and we will be able to plug CALC_SUM into the averageCalc 
+
+const averageCalc = () => {
+    let totalMPG = CALC_SUM(DATA_MPG)
+    let totalCost = CALC_SUM(DATA_COST)    //move this outside so that it reestablishes each time
+    let averageMPG = Math.round(totalMPG/DATA_MPG.length)
+    let averageCost = Math.round(totalCost/DATA_COST.length)
     updateDOM(` Your average MPG is ${averageMPG}.`)
+    updateDOM(` Your average trip cost is $${averageCost}.`)
+
 }
 
  //calling function for it to updateDOM 
@@ -32,11 +41,11 @@ const averageMPG = () => {
 //commit message : "my code for calc average cost"
 const averageCost = () => {
     let totalCost = 0
-    for (let i = 0; i < dataCost.length; i++){
-        totalCost = totalCost + dataCost[i]
+    for (let i = 0; i < DATA_COST.length; i++){          //refactored this to be one formula
+        totalCost = totalCost + DATA_COST[i]
     }
-    let averageCost = (totalCost/dataCost.length)
-    updateDOM(` Your average trip cost is $${Math.round(averageCost)}.`)
+    let averageCost = (totalCost/DATA_COST.length)
+    updateDOM(` Your average trip cost is $${Math.round(averageCost)}.`) 
 }
 
 
@@ -46,6 +55,4 @@ mileage(200, 5, 5)
 mileage(175, 15, 5.65)
 mileage(250, 30, 5.95)
 mileage(115, 9, 5)
-
-averageMPG()
-averageCost()
+averageCalc()
