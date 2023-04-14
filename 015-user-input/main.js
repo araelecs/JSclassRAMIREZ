@@ -1,3 +1,5 @@
+const FORM = document.getElementById("form-input")
+
 const DATA_MPG = [] 
 const DATA_COST = []
 const updateDOM = (input) => {
@@ -46,10 +48,14 @@ const averageCost = () => {
 }
 
 
-mileage(150, 10, 5.05)
-mileage(100, 20, 5.25)
-mileage(200, 5, 5)
-mileage(175, 15, 5.65)
-mileage(250, 30, 5.95)
-mileage(115, 9, 5)
-averageCalc()
+FORM.addEventListener('submit', (e) => { //"Listens" for code, waits for input. No data = code with not run
+    console.log(e)
+})
+
+// mileage(150, 10, 5.05)
+// mileage(100, 20, 5.25)
+// mileage(200, 5, 5)
+// mileage(175, 15, 5.65)
+// mileage(250, 30, 5.95)
+// mileage(115, 9, 5)
+// averageCalc()
