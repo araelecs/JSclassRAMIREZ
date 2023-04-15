@@ -10,10 +10,10 @@ const updateDOM = (input) => {
 } 
 
  
-const mileage = (miles, gallons, gasPrice = 4.95) => {
+const MILEAGE = (miles, gallons, price = 4.95) => {
     const mpg = Math.round(miles/gallons)
-    const tripCost = gallons * gasPrice
-    updateDOM(` You purchased ${gallons} gallons of fuel at a price of ${gasPrice} and traveled a total of ${miles} miles.`)
+    const tripCost = gallons * price
+    updateDOM(` You purchased ${gallons} gallons of fuel at a price of ${price} and traveled a total of ${miles} miles.`)
     updateDOM(` Your current MPG is ${mpg}, your total cost is $${tripCost}.`)
     DATA_MPG.push(mpg) 
     DATA_COST.push(tripCost) 
@@ -28,34 +28,38 @@ const CALC_SUM = (arr) => {
     return sum 
 }
 
-const averageCalc = () => {
+const AVERAGE_CALC = () => {
     let totalMPG = CALC_SUM(DATA_MPG)
     let totalCost = CALC_SUM(DATA_COST)    
     let averageMPG = Math.round(totalMPG/DATA_MPG.length)
-    let averageCost = Math.round(totalCost/DATA_COST.length)
+    let AVERAGE_COST = Math.round(totalCost/DATA_COST.length)
     updateDOM(` Your average MPG is ${averageMPG}.`)
-    updateDOM(` Your average trip cost is $${averageCost}.`)
+    updateDOM(` Your average trip cost is $${AVERAGE_COST}.`)
 
 }
 
-const averageCost = () => {
+const AVERAGE_COST = () => {
     let totalCost = 0
     for (let i = 0; i < DATA_COST.length; i++){          
         totalCost = totalCost + DATA_COST[i]
     }
-    let averageCost = (totalCost/DATA_COST.length)
-    updateDOM(` Your average trip cost is $${Math.round(averageCost)}.`) 
+    let AVERAGE_COST = (totalCost/DATA_COST.length)
+    updateDOM(` Your average trip cost is $${Math.round(AVERAGE_COST)}.`) 
 }
 
 
 FORM.addEventListener('submit', (e) => { //"Listens" for code, waits for input. No data = code with not run
-    console.log(e)
+    e.preventDefault() //since we are not going to be calling a server script, we must prevent the default by using this line of code
+    const miles = parseInt(e.target.miles.value)
+    const gallons = parseInt(e.target.gallons.value) //we had a string being injected, which did not work
+    const price = parseInt(e.target.price.value) //parseInt takes the # from the string and is read a number instead of a string
+    MILEAGE(miles, gallons, price)//here we are getting the values of miles, gallons, and the price of gas
 })
 
-// mileage(150, 10, 5.05)
-// mileage(100, 20, 5.25)
-// mileage(200, 5, 5)
-// mileage(175, 15, 5.65)
-// mileage(250, 30, 5.95)
-// mileage(115, 9, 5)
-// averageCalc()
+// MILEAGE(150, 10, 5.05)
+// MILEAGE(100, 20, 5.25)
+// MILEAGE(200, 5, 5)
+// MILEAGE(175, 15, 5.65)
+// MILEAGE(250, 30, 5.95)
+// MILEAGE(115, 9, 5)
+// AVERAGE_CALC()
