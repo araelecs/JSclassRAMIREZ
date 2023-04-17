@@ -44,8 +44,13 @@ FORM.addEventListener('submit', (e) => {
     const miles = parseInt(e.target.miles.value)
     const gallons = parseInt(e.target.gallons.value) 
     const price = parseInt(e.target.price.value) 
-    if(miles === 0){ //this will only happen if the input in miles is equal to 0, miles === must be true
+    if(miles === 0 || gallons === 0 || price === 0){ //this will only happen if the input in miles is equal to 0, miles === must be true
         errorMessage.push('Invalid Entry (0)') //couldnt we use the "or" feature in the "if" statement to include gallons and price as well?
+    }
+// || or && AND
+
+    if(price > 1000) {
+        errorMessage.push(' Im Walking')
     }
 
     if(errorMessage.length > 0) {

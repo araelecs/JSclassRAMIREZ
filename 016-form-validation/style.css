@@ -7,3 +7,7 @@
     border: 1px dotted #2a07ed;
     border-radius: .1em;
   }
+
+  .error {
+    color: red;
+  }
