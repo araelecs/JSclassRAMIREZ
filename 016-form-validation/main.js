@@ -38,6 +38,24 @@ const AVERAGE_CALC = () => {
 
 }
 
+const AVERAGE_PRICE = (miles, gallons, price = 4.95) => {
+    const mpg = Math.round(miles/gallons)
+    const tripCost = gallons * price
+    updateDOM(` You purchased ${gallons} gallons of fuel at a price of ${price} and traveled a total of ${miles} miles.`)
+    updateDOM(` Your current MPG is ${mpg}, your total cost is $${tripCost}.`)
+    DATA_MPG.push(mpg) 
+    DATA_COST.push(tripCost) 
+}
+
+const AVERAGE_COST = () => {
+    let totalCost = 0
+    for (let i = 0; i < DATA_COST.length; i++){          
+        totalCost = totalCost + DATA_COST[i]
+    }
+    let AVERAGE_COST = (totalCost/DATA_COST.length)
+    updateDOM(` Your average trip cost is $${Math.round(AVERAGE_COST)}.`) 
+}
+
 FORM.addEventListener('submit', (e) => { 
     e.preventDefault() 
     const errorMessage = []
@@ -51,12 +69,14 @@ FORM.addEventListener('submit', (e) => {
 
     if(price > 1000) {
         errorMessage.push(' Im Walking')
+    } else {
+        errorMessage.length = 0
+        MILEAGE(miles, gallons, price) //otherwise, carry out this code 
+        
     }
 
-    if(errorMessage.length > 0) {
+    if(errorMessage.length > 0) { 
         ERR.textContent = errorMessage
-    } else {
-        MILEAGE(miles, gallons, price) //otherwise, carry out this code 
     }
 })
 
