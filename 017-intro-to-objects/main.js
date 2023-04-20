@@ -25,17 +25,19 @@ const greeting = MY_OBJECT.myHello('Lorenzo')
 console.log(greeting)  //this is the most "global" you can get //this will show you the most amount of area it can cover within its scope
 
 const FINANCE_INFO = {
+    greeting: "Welcome to Javascript Bank",
     customer: "Bob",
-    balance: 1000,
+    financialGoals: ['buying a home', 'paying off your car', 'investing in stocks'],
+    balance: 20000,
     purchase: function(price){
         remaining = (this.balance - price)   
         if(remaining >= 0) {
-            return `Greetings ${this.customer}. Thank you for your purchase of $${price}. You account is in good standing. Your remaining balance is $${remaining}. `
+            return `${this.greeting}, ${this.customer}. Thank you for your purchase of $${price}. You're well on your way of your goals of ${this.financialGoals[0]}, ${this.financialGoals[1]}, and ${this.financialGoals[2]}. Your remaining balance is $${remaining}. `
         } else {
-            return `Greetings ${this.customer}. Thank you for your purchase of $${price}. Your account is now overdrafted. Your balance is $${remaining}.`
+            return `${this.greeting}, ${this.customer}. Thank you for your purchase of $${price}. Your account is now overdrafted. Your balance is $${remaining}.`
         }
 
     }
 }
 
-const purchase = FINANCE_INFO.purchase(5000)
+const purchase = FINANCE_INFO.purchase(50000)
