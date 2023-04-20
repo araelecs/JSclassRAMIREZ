@@ -7,19 +7,19 @@ const MY_ARRAY = {}
 const MY_NUMBER = 100
 const MY_OBJECT = {
     //can also be called properties, Key describes what the value is
-    firstName : "Anthony ",
+    firstName : "Anthony",
     age: 22,
-    hobbies: ['Playing with Dog ', 'Gardening ', 'Work on cars ' ], //array of item (reference individuals by # entry)
+    hobbies: ['playing with my dog', 'gardening', 'working on cars' ], //array of item (reference individuals by # entry)
     mobile: {
-        make: 'S21 ',
-        OS: 'Android ',//this is nested, reference it by .make/.os/.brand extension
-        brand: 'Samsung '
+        make: 'S21',
+        OS: 'Android',//this is nested, reference it by .make/.os/.brand extension
+        brand: 'Samsung'
     },                          //ALWAYS PUT A COMMA OR IT WILL BREAK THE CODE
     myHello: function(person){ //call MY_OBJECT, myHello, and then insert a parameter with quotes 
-        return `Hello ${person}! `
+        return `My name is ${this.firstName}, I am ${this.age} years old, one is my favorite hobbies ${this.hobbies[0]}. I own a ${this.mobile.brand} ${this.mobile.make}, it runs on ${this.mobile.OS}. It is nice to meet you, ${person}! `
     }
 }   
 
-const greeting = MY_OBJECT.myHello('Anthony')
+const greeting = MY_OBJECT.myHello('Lorenzo')
 
-console.log(greeting)
+console.log(greeting)  //this is the most "global" you can get //this will show you the most amount of area it can cover within its scope
