@@ -38,15 +38,6 @@ const AVERAGE_CALC = () => {
 
 }
 
-const AVERAGE_PRICE = (miles, gallons, price = 4.95) => {
-    const mpg = Math.round(miles/gallons)
-    const tripCost = gallons * price
-    updateDOM(` You purchased ${gallons} gallons of fuel at a price of ${price} and traveled a total of ${miles} miles.`)
-    updateDOM(` Your current MPG is ${mpg}, your total cost is $${tripCost}.`)
-    DATA_MPG.push(mpg) 
-    DATA_COST.push(tripCost) 
-}
-
 const AVERAGE_COST = () => {
     let totalCost = 0
     for (let i = 0; i < DATA_COST.length; i++){          
@@ -65,18 +56,17 @@ FORM.addEventListener('submit', (e) => {
     if(miles === 0 || gallons === 0 || price === 0){ //this will only happen if the input in miles is equal to 0, miles === must be true
         errorMessage.push('Invalid Entry (0)') //couldnt we use the "or" feature in the "if" statement to include gallons and price as well?
     }
-// || or && AND
-
     if(price > 1000) {
         errorMessage.push(' Im Walking')
+    } if(errorMessage.length > 0) { 
+        ERR.textContent = errorMessage 
     } else {
-        errorMessage.length = 0
+        ERR.textContent = ''// errorMessage.length = 0 instead of setting the length to 0, we should just set it to blank
+        //we are clearing the array where these errors are stored
         MILEAGE(miles, gallons, price) //otherwise, carry out this code 
-        
+        AVERAGE_COST() //i overthought this, it just needed to call this function again, as we did when we were interting artifical data
     }
-
-    if(errorMessage.length > 0) { 
-        ERR.textContent = errorMessage
-    }
+    FORM.reset() //this will reset the form entirely, done for the convenience of the user
+    
 })
 
