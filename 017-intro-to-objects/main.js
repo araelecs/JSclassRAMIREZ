@@ -11,7 +11,7 @@ const MY_OBJECT = {
     age: 22,
     hobbies: ['playing with my dog', 'gardening', 'working on cars' ], //array of item (reference individuals by # entry)
     mobile: {
-        make: 'S21',
+        make: 'S21', //arrow functions will disable the "this" option
         OS: 'Android',//this is nested, reference it by .make/.os/.brand extension
         brand: 'Samsung'
     },                          //ALWAYS PUT A COMMA OR IT WILL BREAK THE CODE
@@ -23,3 +23,19 @@ const MY_OBJECT = {
 const greeting = MY_OBJECT.myHello('Lorenzo')
 
 console.log(greeting)  //this is the most "global" you can get //this will show you the most amount of area it can cover within its scope
+
+const FINANCE_INFO = {
+    customer: "Bob",
+    balance: 1000,
+    purchase: function(price){
+        remaining = (this.balance - price)   
+        if(remaining >= 0) {
+            return `Greetings ${this.customer}. Thank you for your purchase of $${price}. You account is in good standing. Your remaining balance is $${remaining}. `
+        } else {
+            return `Greetings ${this.customer}. Thank you for your purchase of $${price}. Your account is now overdrafted. Your balance is $${remaining}.`
+        }
+
+    }
+}
+
+const purchase = FINANCE_INFO.purchase(5000)

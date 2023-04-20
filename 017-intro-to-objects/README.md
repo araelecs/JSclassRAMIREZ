@@ -1,0 +1,1 @@
+#Hello Rio, I definitely appreciate the last assignment of the week being shorter. Thanks for that!
