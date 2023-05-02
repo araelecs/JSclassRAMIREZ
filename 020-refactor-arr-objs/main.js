@@ -1,58 +1,38 @@
 const FORM = document.getElementById("form-input")
 const ERR = document.getElementById("err")
-const updateDOM = (input) => {
+
+  
+  const APP_DATA = []
+
+  const updateDOM = (input) => {
     const divEl = document.querySelector('#output') 
      const p = document.createElement('p')
     p.textContent = input
     divEl.appendChild(p) 
 } 
-  
-  const APP_DATA = []
-
-  const INFO_TRACKER = (data) =>{
+  const INFO_TRACKER = (data) => {
     const mpg = Math.round(data.miles/data.gallons)
     const tripCost = Math.round(data.gallons * data.price)
-    updateDOM(` You purchased ${gallons} gallons of fuel at a price of ${price} and traveled a total of ${miles} miles.`)
-    updateDOM(` Your current MPG is ${mpg}, your total cost is $${tripCost}.`)
+    updateDOM(`Your current MPG is ${mpg}.`)
+    updateDOM(`Your total cost is $${tripCost}.`)
+    data.mpg = mpg
+    data.tripCost = tripCost
+    return data
 }
     
-  
- const DATA_MPG = [] 
-const DATA_COST = []
-const MILEAGE = (miles, gallons, price = 4.95) => {
-    
-    DATA_MPG.push(mpg) 
-    DATA_COST.push(tripCost) 
-}
-
-const CALC_SUM = (arr) => {
-     let sum = 0
-     for(value of arr) {
-     sum += (value)
-
-}
-    return sum 
-}
-
 const AVERAGE_CALC = () => {
-    let totalMPG = CALC_SUM(DATA_MPG)
-    let totalCost = CALC_SUM(DATA_COST)    
-    let averageMPG = Math.round(totalMPG/DATA_MPG.length)
-    let AVERAGE_COST = Math.round(totalCost/DATA_COST.length)
-    updateDOM(` Your average MPG is ${averageMPG}.`)
-    updateDOM(` Your average trip cost is $${AVERAGE_COST}.`)
-
+    let totalMPG = 0
+    let totalCost = 0   
+    APP_DATA.forEach(obj => {
+        totalMPG += obj.mpg
+        totalCost += obj.tripCost //will add all values
+    })
+    
+let averageMPG = Math.round(totalMPG/APP_DATA.length)
+let averageCost = Math.round(totalCost/APP_DATA.length)
+updateDOM(` Your average MPG is ${averageMPG}.`)
+updateDOM(` Your average trip cost is $${averageCost}.`)
 }
-
-const AVERAGE_COST = () => {
-    let totalCost = 0
-    for (let i = 0; i < DATA_COST.length; i++){          
-        totalCost = totalCost + DATA_COST[i]
-    }
-    let AVERAGE_COST = (totalCost/DATA_COST.length)
-    updateDOM(` Your average trip cost is $${Math.round(AVERAGE_COST)}.`) 
-}
-
 FORM.addEventListener('submit', (e) => { 
     e.preventDefault() 
     const errorMessage = []
@@ -67,17 +47,17 @@ FORM.addEventListener('submit', (e) => {
     } if(errorMessage.length > 0) { 
         ERR.textContent = errorMessage 
     } else {
-        ERR.textContent = ''
         const dataInput = {
             miles:miles,
             gallons:gallons,
             price:price
         }
-        // MILEAGE(miles, gallons, price) convert this
-        // AVERAGE_COST() 
+        ERR.textContent = ''
         
+    const updateData = INFO_TRACKER(dataInput)
+        APP_DATA.push(updateData)
+        AVERAGE_CALC()        
     }
     FORM.reset() 
-    
 })
 
