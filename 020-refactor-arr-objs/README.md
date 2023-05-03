@@ -1,0 +1,3 @@
+#Hi Rio! I do understand what you mean by a "CRUD" app. 
+#I don't think I would be able to write the entire start of the CRUD app. I would probably reference your resources and my previous work
+#It would be cool to write something up that involved spending and managing money. I feel like people would be more responsible with their $$$ if they had an easier way to track it and realize how much they're spending
