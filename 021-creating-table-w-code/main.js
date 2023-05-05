@@ -73,7 +73,7 @@ function isFormValid (miles, gallons, price) { //we probably should not be using
     }
 }
 
-function renderTable() {//we must first create the table
+function renderTableHeadings() {//we must first create the table
     const tbl = document.createElement('table')        //this will now be created through code, and not hard coded like in our HTML file
     const headings = ['Miles Driven: ', 'Gallons Consumed: ', 'Price: ', 'Trip MPG: ', 'Trip Cost: ', 'Edit/Delete']
     const tr = document.createElement('tr')//creating our row
@@ -82,11 +82,12 @@ function renderTable() {//we must first create the table
         th.textContent = heading
         tr.appendChild(th) //"appends" it into the structure
     })
-}
-   //return should probably be in one of these, not sure which one though
-   function pushTable() {
-    console.log(tr)
     tbl.appendChild(tr)
+    return tbl
+}
+   
+function renderTable() {
+    const tbl = renderTableHeadings() //call the previous function
     TBL_OUTPUT.appendChild(tbl)
     MY_DATA.forEach(function(obj){
         const tr = document.createElement('tr')
@@ -95,7 +96,15 @@ function renderTable() {//we must first create the table
             td.textContent = obj[key]
             tr.appendChild(td)
         }
-        tbl.appendChild(tr)
+        const btnTD = document.createElement('td')
+        const editBtn = document.createElement('button')
+        editBtn.textContent = 'Edit' //without text, it will not show the button
+        const delBtn = document.createElement('button')
+        delBtn.textContent = 'Delete' //without text, it will not show the button
+        btnTD.appendChild(editBtn)
+        btnTD.appendChild(delBtn)
+        tr.appendChild(btnTD)
+        tbl.appendChild(tr) //we can now use tbl reference in the rest of the code
 
     })
 }
