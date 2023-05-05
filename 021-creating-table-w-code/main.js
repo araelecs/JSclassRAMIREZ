@@ -3,6 +3,7 @@
 const FORM = document.getElementById('form-input')
 const ERR = document.getElementById('err')
 const AVG_OUTPUT = document.getElementById('output-avg')
+const TBL_OUTPUT = document.getElementById('table-out')
 
 /* MY_DATA is global array that will be updated by the user input with objects from form input values 
 and calculate data */
@@ -25,7 +26,7 @@ returns an object */
 function trackMPGandCost (miles, gallons, price) {
     const MPG  = Math.round(miles/gallons)
     const tripCost = Math.round(gallons * price)
-    updateDOM(`Your current MPG is${MPG} and trip cost is ${tripCost}.`, '#output')
+    updateDOM(`Your current MPG is ${MPG} and trip cost is ${tripCost}.`, '#output')
     return {
         MPG: MPG, 
         tripCost: tripCost,
@@ -48,7 +49,7 @@ function calculateAvg () {
     })
     const avgMPG = Math.round(sumMPG/numberOfObj)
     const avgTripCost = Math.round(sumTripCost/numberOfObj)
-    updateDOM(`Average MPG is ${avgMPG}`, '#output-avg')
+    updateDOM(`Average MPG is  ${avgMPG}`, '#output-avg')
     updateDOM(`Average Trip Cost is ${avgTripCost}`, '#output-avg')
 }
 
@@ -71,6 +72,21 @@ function isFormValid (miles, gallons, price) { //we probably should not be using
     }
 }
 
+function renderTable() {//we must first create the table
+    const tbl = document.createElement('table')        //this will now be created through code, and not hard coded like in our HTML file
+    const headings = ['Miles Driven: ', 'Gallons Consumed: ', 'Price: ', 'Trip MPG: ', 'Trip Cost: ', 'Edit/Delete']
+    const tr = document.createElement('tr')//creating our row
+    headings.forEach(function(heading){
+        let th = document.createElement('th')
+        th.textContent = heading
+        tr.appendChild(th) //"appends" it into the structure
+    })
+    console.log(tr)
+    tbl.appendChild(tr)
+    TBL_OUTPUT.appendChild(tbl)
+
+}
+
 /* Eventlisteners for form submit button, checks validation and if valid saves input data and calculated 
 data as an object into global array named MY_DATA */
 
@@ -85,6 +101,7 @@ FORM.addEventListener('submit', (e) => {
         AVG_OUTPUT.textContent = ''
         const dataObj = trackMPGandCost(miles, gallons, price)
         MY_DATA.push(dataObj)
+        renderTable()
         calculateAvg()
     }
     FORM.reset()  
