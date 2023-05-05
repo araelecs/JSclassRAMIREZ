@@ -28,11 +28,12 @@ function trackMPGandCost (miles, gallons, price) {
     const tripCost = Math.round(gallons * price)
     updateDOM(`Your current MPG is ${MPG} and trip cost is ${tripCost}.`, '#output')
     return {
-        MPG: MPG, 
-        tripCost: tripCost,
+        
         miles: miles,
-        gallons: gallons,
-        price: price
+        gallons: gallons, //this is what gets pushed in
+        price: price, 
+        MPG: MPG, 
+        tripCost: tripCost
     }
 }
 
@@ -84,7 +85,16 @@ function renderTable() {//we must first create the table
     console.log(tr)
     tbl.appendChild(tr)
     TBL_OUTPUT.appendChild(tbl)
+    MY_DATA.forEach(function(obj){
+        const tr = document.createElement('tr')
+        for(key in obj){
+            let td = document.createElement('td')
+            td.textContent = obj[key]
+            tr.appendChild(td)
+        }
+            tbl.appendChild(tr)
 
+    })
 }
 
 /* Eventlisteners for form submit button, checks validation and if valid saves input data and calculated 

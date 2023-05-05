@@ -9,3 +9,5 @@
 
 #How do we create TR with row, what will be in row?
 #I assume that we will put our table inside our MY_DATA object. Then we will reference the items in each array in order to get them to exist within our table. This is probably best we all of our values are already within the MY_DATA object and we will able to reference them locally. (Using "the this" maybe?). 
+
+#Maybe if we referenced each item within the object individually each time it would change how it is displayed. However I feel like this would be tedious and not very universal
