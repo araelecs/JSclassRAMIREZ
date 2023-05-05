@@ -82,6 +82,9 @@ function renderTable() {//we must first create the table
         th.textContent = heading
         tr.appendChild(th) //"appends" it into the structure
     })
+}
+   //return should probably be in one of these, not sure which one though
+   function pushTable() {
     console.log(tr)
     tbl.appendChild(tr)
     TBL_OUTPUT.appendChild(tbl)
@@ -92,7 +95,7 @@ function renderTable() {//we must first create the table
             td.textContent = obj[key]
             tr.appendChild(td)
         }
-            tbl.appendChild(tr)
+        tbl.appendChild(tr)
 
     })
 }
