@@ -85,8 +85,23 @@ function renderTableHeadings() {//we must first create the table
     tbl.appendChild(tr)
     return tbl
 }
-   
+ 
+
+function renderEditDelBtn (tr){
+    const td = document.createElement('td')
+    const editBtn = document.createElement('button')
+    editBtn.textContent = 'Edit' //without text, it will not show the button
+    const delBtn = document.createElement('button')
+    delBtn.textContent = 'Delete' //without text, it will not show the button
+    td.appendChild(editBtn)
+    td.appendChild(delBtn)
+    tr.appendChild(td)
+    return tr
+}
+
+
 function renderTable() {
+    TBL_OUTPUT.innerHTML = '' //will set it equal to nothing, clearing it up
     const tbl = renderTableHeadings() //call the previous function
     TBL_OUTPUT.appendChild(tbl)
     MY_DATA.forEach(function(obj){
@@ -96,15 +111,15 @@ function renderTable() {
             td.textContent = obj[key]
             tr.appendChild(td)
         }
-        const btnTD = document.createElement('td')
-        const editBtn = document.createElement('button')
-        editBtn.textContent = 'Edit' //without text, it will not show the button
-        const delBtn = document.createElement('button')
-        delBtn.textContent = 'Delete' //without text, it will not show the button
-        btnTD.appendChild(editBtn)
-        btnTD.appendChild(delBtn)
-        tr.appendChild(btnTD)
-        tbl.appendChild(tr) //we can now use tbl reference in the rest of the code
+        const btnTD = renderEditDelBtn(tr)
+        // const editBtn = document.createElement('button')
+        // editBtn.textContent = 'Edit' //without text, it will not show the button
+        // const delBtn = document.createElement('button')
+        // delBtn.textContent = 'Delete' //without text, it will not show the button
+        // btnTD.appendChild(editBtn)
+        // btnTD.appendChild(delBtn)
+         tr.appendChild(btnTD)
+         tbl.appendChild(tr)
 
     })
 }
@@ -123,6 +138,7 @@ FORM.addEventListener('submit', (e) => {
         AVG_OUTPUT.textContent = ''
         const dataObj = trackMPGandCost(miles, gallons, price)
         MY_DATA.push(dataObj)
+        renderEditDelBtn(tr)
         renderTable()
         calculateAvg()
     }

@@ -13,3 +13,5 @@
 #Maybe if we referenced each item within the object individually each time it would change how it is displayed. However I feel like this would be tedious and not very universal
 
 #I assume that we can impement something similar to the delete form function we used previously to get rid of the content in the form. In this case, we would be getting rid of the tables that exist and re-inserting them to prevent dupicate tables
+
+#I was able to get rid of some of the errors (I believe), but now DevTools tells me that something is undefined. I'm assuming I may be referencing the wrong thing. I'm pretty sure we had to include our RenderEditDel function in our event listener function
