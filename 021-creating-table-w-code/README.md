@@ -15,3 +15,5 @@
 #I assume that we can impement something similar to the delete form function we used previously to get rid of the content in the form. In this case, we would be getting rid of the tables that exist and re-inserting them to prevent dupicate tables
 
 #I was able to get rid of some of the errors (I believe), but now DevTools tells me that something is undefined. I'm assuming I may be referencing the wrong thing. I'm pretty sure we had to include our RenderEditDel function in our event listener function
+
+#I understand what is going on in the code, but only because it is fresh in my mind. The thing with me is that I will understand after I see working code and being able to walk through it in DevTool. Though messing with code is the best way to learn, I tend not to as I am not 100% sure what I am doing is actually right. Thank you for explaining thoroughly! The only thing that confuses me is when there is a mistake in the code and then we undo the error in the next video. I can see why we fixed the error, but it tends to throw me off

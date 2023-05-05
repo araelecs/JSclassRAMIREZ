@@ -95,8 +95,7 @@ function renderEditDelBtn (tr){
     delBtn.textContent = 'Delete' //without text, it will not show the button
     td.appendChild(editBtn)
     td.appendChild(delBtn)
-    tr.appendChild(td)
-    return tr
+    return td
 }
 
 
@@ -111,7 +110,7 @@ function renderTable() {
             td.textContent = obj[key]
             tr.appendChild(td)
         }
-        const btnTD = renderEditDelBtn(tr)
+        const btnTD = renderEditDelBtn() // no need to pass tr here
         // const editBtn = document.createElement('button')
         // editBtn.textContent = 'Edit' //without text, it will not show the button
         // const delBtn = document.createElement('button')
@@ -138,7 +137,6 @@ FORM.addEventListener('submit', (e) => {
         AVG_OUTPUT.textContent = ''
         const dataObj = trackMPGandCost(miles, gallons, price)
         MY_DATA.push(dataObj)
-        renderEditDelBtn(tr)
         renderTable()
         calculateAvg()
     }
