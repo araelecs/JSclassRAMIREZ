@@ -20,3 +20,6 @@
 
 #What I tried
 #I tried to reference gallons, miles, and price individually within the event listener. Though it did not seem to break anything, it did not seem to change much of what I already have
+
+#What I tried for delbtn
+#I tried to create a similar function to the editbtn, but instead I set our data equal to "", which I assumed would delete the information. I am pretty sure I am right about creating a new event listener

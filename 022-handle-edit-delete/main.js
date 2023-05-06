@@ -96,9 +96,16 @@ function renderEditDelBtn (index){
     //we must add event listener
     //we want values to be put into the input fields once the users clicks edit
     editBtn.addEventListener('click', function(e){ //waiting for a click, and then calling back. Then do what is in the brackets
-        FORM[0] = miles
-        FORM[1] = gallons
-        FORM[2] = price
+        FORM[0].value = MY_DATA[index].miles
+        FORM[1].value = MY_DATA[index].gallons
+        FORM[2].value = MY_DATA[index].price
+        MY_DATA.splice(index, 1) //only target the "1", otherwise the whole thing will be deleted 
+    })
+    delBtn.addEventListener('click', function(e){ //same as the previous event listener, except it is for delbtn instead of editbtn
+        FORM[0].value = MY_DATA[index].miles
+        FORM[1].value = MY_DATA[index].gallons
+        FORM[2].value = MY_DATA[index].price
+        MY_DATA = "" //I assume we can get rid of it entirely if we just set it equal to nothing
     })
     td.appendChild(editBtn)
     td.appendChild(delBtn)
