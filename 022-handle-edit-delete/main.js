@@ -96,7 +96,9 @@ function renderEditDelBtn (index){
     //we must add event listener
     //we want values to be put into the input fields once the users clicks edit
     editBtn.addEventListener('click', function(e){ //waiting for a click, and then calling back. Then do what is in the brackets
-        console.log(index)
+        FORM[0] = miles
+        FORM[1] = gallons
+        FORM[2] = price
     })
     td.appendChild(editBtn)
     td.appendChild(delBtn)
