@@ -8,7 +8,17 @@ const TBL_OUTPUT = document.getElementById("table-out");
 /* MY_DATA is global array that will be updated by the user input with objects from form input values 
 and calculate data */
 
-const MY_DATA = [];
+function getTripData() {
+    const tripDataJSON = localStorage.getItem('tripdata')
+    if(tripDataJSON !== null){
+        return JSON.parse(tripDataJSON) //once returned, we must parse it
+   } else {
+      return [] //will return an empty array 
+   }
+}
+
+const MY_DATA = getTripData()
+renderTable()
 
 /* updateDOM function takes in input (string value) and id (to determine DOM location to update) 
 and creates and updates DOM elements*/
@@ -159,6 +169,7 @@ FORM.addEventListener("submit", (e) => {
     MY_DATA.push(dataObj);
     renderTable();
     calculateAvg();
+    localStorage.setItem('tripdata', JSON.stringify(MY_DATA))
   }
   FORM.reset();
 });
