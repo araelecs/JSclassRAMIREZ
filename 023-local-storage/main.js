@@ -17,6 +17,10 @@ function getTripData() {
    }
 }
 
+function saveTripData(){
+    localStorage.setItem('tripdata', JSON.stringify(MY_DATA))
+}
+
 const MY_DATA = getTripData()
 renderTable()
 
@@ -125,6 +129,7 @@ function renderEditDelBtn(index) {
   delBtn.addEventListener("click", function (e) {
     //same as the previous event listener, except it is for delbtn instead of editbtn
     MY_DATA.splice(index, 1);
+    saveTripData()
     //if render table is alone it still leaves the headers behind
     // TBL_OUTPUT.innerHTML = ''  //ensures that headers are deleted as well
     renderTable();
@@ -167,9 +172,9 @@ FORM.addEventListener("submit", (e) => {
     AVG_OUTPUT.textContent = "";
     const dataObj = trackMPGandCost(miles, gallons, price);
     MY_DATA.push(dataObj);
+    saveTripData()
     renderTable();
     calculateAvg();
-    localStorage.setItem('tripdata', JSON.stringify(MY_DATA))
   }
   FORM.reset();
 });

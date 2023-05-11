@@ -1,3 +1,5 @@
 #Week 11
 What I know about JSON
 JSON is a file format type which doubles as a data interchange format. It uses text that is readable by humans. It is needed to access and change data with ease. It allows individuals to exchange data with ease, which is essential when dealing with code. If people can't access or read the data, what is the point? JSON is a standard. There are others such as XML and CSV. JSON is known to be simple and less cluttered, which is why it is used by many. In conclusion, JSON is basically a way of storing, representing, and accessing data. It is used as a standard in coding in order to simplify sharing and modifying information with others.
+
+Yes! I understand that the MYDATA information is volatile and will not be saved. It will disapear if it is not saved to a non-volatile storage. In this case, the local storage is our non-volatile storage. As I saw in the video, the information is saved in the local storage tab once it is submitted through the site and is stored there unless we hit the delete button.
