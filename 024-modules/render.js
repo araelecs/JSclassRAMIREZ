@@ -1,3 +1,4 @@
+import { saveTripData } from "./storage.js";
 const FORM = document.getElementById("form-input");
 const TBL_OUTPUT = document.getElementById("table-out");
 
@@ -40,10 +41,10 @@ function renderTableHeadings() {
     delBtn.addEventListener("click", function (e) {
       //same as the previous event listener, except it is for delbtn instead of editbtn
       MY_DATA.splice(index, 1);
-      saveTripData()
+      saveTripData(MY_DATA)
       //if render table is alone it still leaves the headers behind
       // TBL_OUTPUT.innerHTML = ''  //ensures that headers are deleted as well
-      renderTable();
+      renderTable(MY_DATA);
     });
     td.appendChild(editBtn);
     td.appendChild(delBtn);
