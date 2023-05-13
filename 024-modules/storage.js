@@ -1,14 +1,14 @@
 function getTripData() {
-    const tripDataJSON = localStorage.getItem('tripdata')
-    if(tripDataJSON !== null){
-        return JSON.parse(tripDataJSON) //once returned, we must parse it
-   } else {
-      return [] //will return an empty array 
-   }
+    const tripDataJSON = localStorage.getItem('tripData')
+    if(tripDataJSON !== null) {
+       return JSON.parse(tripDataJSON) 
+    } else {
+       return [] 
+    }   
 }
 
-function saveTripData(MY_DATA){
-    localStorage.setItem('tripdata', JSON.stringify(MY_DATA))
+function saveTripData(MY_DATA) {
+    localStorage.setItem('tripData', JSON.stringify(MY_DATA))
 }
 
 export {getTripData, saveTripData}

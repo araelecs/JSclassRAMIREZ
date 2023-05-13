@@ -1,0 +1,5 @@
+#Week 11 Modules
+
+This code looks a lot better! I almost got the challenge correctly this time. For whatever reason, my storage.js file stopped parsing correctly after I moved onto correcting the code by following your video. I rewatched the videos and followed step by step and kept getting a Json syntax error. Then I copied your code onto my files and STILL had the error. I then added some camel-casing to the letters in the storage file and it seemed to fix the issue. I thought that that was really odd as it was not giving me any issues till the end. Maybe I moved something by accident? Anyway, I am going to start fresh using your code (after attempting the challenge on my own) so that I don't run into any more issues, hope that is OK! I like the fact that we have functions in one file and then we reference them from the main.js file through export/import functions. I feel like this is a lot cleaner than what we were doing before. It almost feels like we are pulling from a toolbox.
+
+#Next up, I feel like we could seperate things even more. I'm hoping we can put each thing into a seperate file like we did with functions, it feels a lot more organized.
