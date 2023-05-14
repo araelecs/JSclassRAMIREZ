@@ -8,8 +8,8 @@ function updateDOM(input, id) {
 }
 
 function trackMPGandCost(miles, gallons, price) {
-    const MPG = Math.round(miles / gallons);
-    const tripCost = Math.round(gallons * price);
+    const MPG = Number((miles / gallons).toFixed(2));
+    const tripCost = Number((gallons * price).toFixed(2));
     return {
         miles: miles,
         gallons: gallons,
@@ -27,8 +27,8 @@ function calculateAvg(MY_DATA) {
         sumMPG += obj.MPG;
         sumTripCost += obj.tripCost;
     });
-    const avgMPG = Math.round(sumMPG / numberOfObj);
-    const avgTripCost = Math.round(sumTripCost / numberOfObj);
+    const avgMPG = Number((sumMPG / numberOfObj).toFixed(2)); //we do not want to round this, make sure to set to number as math round will round the value, defeating the purpose
+    const avgTripCost = Number((sumTripCost / numberOfObj).toFixed(2));
     updateDOM(`Average MPG is ${avgMPG}`, '#output-avg');
     updateDOM(`Average Trip Cost is ${avgTripCost}`, '#output-avg');
 }
