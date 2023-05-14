@@ -21,12 +21,19 @@ function trackMPGandCost(miles, gallons, price) {
 
 function calculateAvg(MY_DATA) {
     const numberOfObj = MY_DATA.length;
-    let sumMPG = 0;
-    let sumTripCost = 0;
-    MY_DATA.forEach(obj => {
-        sumMPG += obj.MPG;
-        sumTripCost += obj.tripCost;
-    });
+    // let sumMPG = 0;
+    // let sumTripCost = 0;
+    // MY_DATA.forEach(obj => {
+    //     sumMPG += obj.MPG;
+    //     sumTripCost += obj.tripCost;
+    // });
+    const sums = MY_DATA.reduce(function(sum, obj){ //must pass in sum and obj //new object, sums
+        return {
+           MPG: sum.MPG + obj.MPG,
+           tripCost: sum.tripCost + obj.tripCost
+
+        }
+    })      //can set this inside or outside //do not need initializer here 
     const avgMPG = Number((sumMPG / numberOfObj).toFixed(2)); //we do not want to round this, make sure to set to number as math round will round the value, defeating the purpose
     const avgTripCost = Number((sumTripCost / numberOfObj).toFixed(2));
     updateDOM(`Average MPG is ${avgMPG}`, '#output-avg');
