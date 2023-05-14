@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mileage Program</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="render.js"></script>
+    <script type="module" src="handleinput.js"></script>
+    <script type="module" src="main.js"></script>
+</head>
+
+<body>
+    <div class="centered">
+        <div id="err" class="error"></div>
+        <form id="form-input">
+            <h1>MPG and Trip Cost Calculator</h1>
+            <labels><input id="miles" name="miles" step="any" type="number" required placeholder="Enter Miles"></labels>
+            <labels><input id="gallons" name="gallons" step="any" type="number" required placeholder="Enter Gallons"></labels>
+            <labels><input id="price" name="price" step="any" type="number" required placeholder="Enter Price"></labels>
+            <button>Submit</button>
+        </form>
+        <div id="output"></div>
+        <div id="table-out">
+        </div>
+        <div id="output-avg"></div>
+    </div>
+</body>
+
+</html>
