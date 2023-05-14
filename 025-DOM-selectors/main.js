@@ -12,9 +12,9 @@ renderTable(MY_DATA)
 
 FORM.addEventListener('submit', (e) => {
     e.preventDefault();
-    const miles = parseFloat(e.target.miles.value);
-    const gallons = parseFloat(e.target.gallons.value);
-    const price = parseFloat(e.target.price.value);
+    const miles = parseInt(e.target.miles.value);
+    const gallons = parseInt(e.target.gallons.value);
+    const price = parseInt(e.target.price.value);
     const isValid = isFormValid(miles, gallons, price);
     if (isValid) {
         ERR.textContent = '';

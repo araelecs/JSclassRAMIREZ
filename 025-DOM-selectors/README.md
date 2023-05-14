@@ -1,0 +1,3 @@
+#Week 12 
+
+#I tried to fix the code by adding a new attribute to our HTML file. I read online that I should add either a step=".01" or step="all" attribute. Another things I tried is changing "parseint" to "parsefloat". I don't know if that is silly or not lol. I just remember that a float has a decimal in it and an integer does not. After doing this, I am able to input decimals into our fields, but they return to normal integers after they are submitted.
