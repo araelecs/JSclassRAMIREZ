@@ -4,6 +4,8 @@ class Person { // in a class we must cap the first letter of the name
         this.lastName = lastName
         this.address = address
     }
+    //private vs public fields
+
     showStatus(){
         console.log(`${this.firstName} lives at ${this.address}`)
     }
@@ -14,7 +16,9 @@ class Student extends Person{
         super(firstName, lastName, address)
         this.classList = classList
     }
-
+    showStatus() {
+        console.log(`${this.firstName} lives at ${this.address} is taking ${this.classList}`)
+    }
 }
 
 const anthony = new Student("Anthony", "Ramirez", "House Street", ["English1", "CIT45", "CIT58"]) //new object created from a template/blueprint which includes both data and methods

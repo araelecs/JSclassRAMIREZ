@@ -1,2 +1,3 @@
 #Intro to OOP
 #Hey Rio, I understand the difference in syntax, but I still don't see why we would use this instead of our original method. I guess I will have to see when we start to include it in the code later on.
+#Student class subclass and the subtype chain make a bit more sense to me now. I can definitely see this way being a lot more organized than our original method. I can see this being useful when referencing specific categories in a big app. I assume this is one way to be a bit more organized and allow devs to target more objects. 
