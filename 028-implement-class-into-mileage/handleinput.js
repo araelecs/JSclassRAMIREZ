@@ -30,7 +30,7 @@ function calculateAvg(MY_DATA) {
            _tripCost: sum._tripCost + obj._tripCost
 
         }
-    },0)      //can set this inside or outside //do not need initializer here 
+    })      //can set this inside or outside //do not need initializer here 
     const avgMPG = Number((sums._MPG / numberOfObj).toFixed(2)); //we do not want to round this, make sure to set to number as math round will round the value, defeating the purpose
     const avgTripCost = Number((sums._tripCost / numberOfObj).toFixed(2));
     updateDOM(`Average MPG is ${avgMPG}`, '#output-avg');

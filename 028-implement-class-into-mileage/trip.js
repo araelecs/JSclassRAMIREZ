@@ -26,8 +26,7 @@ class Trip {
         this._price = newPrice
     }
     showStatus() {
-        updateDOM(`Average MPG is ${this.getMiles()}`, '#output-avg');
-    updateDOM(`Average Trip Cost is ${this.getPrice()}`, '#output-avg');
+        
     }
     
 }

@@ -9,3 +9,7 @@
 #NaN is listed when app is supposed to show averages 
 #Edit Button does not work
 #I attempted to import Trip into the render.js file in order to be able to reference our getters, but it seems I am missing some steps. I also included some of our updatedom functions in our Trip.js file. I was hoping that I would be able to reference our getters locally but I realize that it probably need more work than that.
+
+#Why didnt we have methods, Does this example give me better understanding of implementing a class
+
+#We could not use methods because of our coding style, when we save our objects into local storage they lose the ability to reference the class. The best way to work around this issue is by avoiding methods. This example did help me get a better understanding on implementing classes. I really like the setters and getters system, I think it looks really organized.
