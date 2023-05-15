@@ -1,9 +1,13 @@
 import { renderTable} from "./render.js";
 import { getTripData, saveTripData } from "./storage.js";
-import { isFormValid, calculateAvg, trackMPGandCost } from "./handleinput.js"
+import { isFormValid, trackMPGandCost } from "./handleinput.js"
+import { Trip } from "./trip.js"
+
 
 const FORM = document.getElementById('form-input');
 const ERR = document.getElementById('err');
+const AVG_OUTPUT = document.getElementById('output-avg')
+
 
 const MY_DATA = getTripData()
 
@@ -17,41 +21,11 @@ FORM.addEventListener('submit', (e) => {
     const isValid = isFormValid(miles, gallons, price);
     if (isValid) {
         ERR.textContent = '';
-        const dataObj = trackMPGandCost(miles, gallons, price);
-        MY_DATA.push(dataObj);
+        AVG_OUTPUT.textContent = '';
+        const trip = new Trip(miles, gallons, price);
+        MY_DATA.push(trip);
         saveTripData(MY_DATA)
         renderTable(MY_DATA, FORM);
-        calculateAvg(MY_DATA);
     }
     FORM.reset();
 });
-
-class APP_Data { 
-    constructor(miles, gallons, price){
-        this._miles = miles; 
-        this._gallons = gallons;
-        this._price = price; 
-    }
-
-    getMiles() {
-        return `${this._miles}` 
-    }
-    setMiles(newMiles) {
-        this._miles = newMiles 
-    }
-    getGallons() {
-        return `${this._gallons}` 
-    }
-    setGallons(newGallons) {
-        this._gallons = newGallons
-    }
-    getPrice() {
-        return `${this._price}` 
-    }
-    setPrice(newPrice) {
-        this._price = newPrice
-    }
-    showStatus() {
-        
-    }
-}

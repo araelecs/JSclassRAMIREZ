@@ -1,5 +1,7 @@
 import { saveTripData } from "./storage.js";
-import { calculateAvg } from "./handleinput.js"; //must refernce it or it will not work, could also move entire function here but i feel like that would be a bit messy idk though
+import { calculateAvg } from "./handleinput.js";
+import { Trip } from "./trip.js"
+
 const FORM = document.getElementById('form-input');
 const TBL_OUTPUT = document.getElementById('table-out');
 
@@ -26,9 +28,9 @@ function renderEditDelBtn(MY_DATA, index) {
     const delBtn = document.createElement('button');
     delBtn.textContent = 'delete';
     editBtn.addEventListener('click', function(e){
-        FORM[0].value = MY_DATA[index].miles
-        FORM[1].value = MY_DATA[index].gallons
-        FORM[2].value = MY_DATA[index].price
+        FORM[0].value = MY_DATA[index].getMiles()
+        FORM[1].value = MY_DATA[index].getGallons()
+        FORM[2].value = MY_DATA[index].getPrice()
         MY_DATA.splice(index, 1)
         const disable_btns = document.querySelectorAll('.tbl-btn')
         disable_btns.forEach(function(btn){
