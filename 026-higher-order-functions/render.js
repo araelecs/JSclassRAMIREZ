@@ -1,9 +1,8 @@
 import { saveTripData } from "./storage.js";
+import { calculateAvg } from "./handleinput.js"; //must refernce it or it will not work, could also move entire function here but i feel like that would be a bit messy idk though
 const FORM = document.getElementById('form-input');
 const TBL_OUTPUT = document.getElementById('table-out');
 
-/* renderTableHeadings create the DOM structure of the table and loops over an array of heading strings 
-to create the th (heading) for the table output */
 
 function renderTableHeadings() {
     const tbl = document.createElement('table');
@@ -68,6 +67,7 @@ function renderTable(MY_DATA) {
             tbl.appendChild(tr);
         });
     }
+    calculateAvg(MY_DATA);
 }
 
 export {renderTable}

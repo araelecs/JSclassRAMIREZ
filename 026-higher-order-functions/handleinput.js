@@ -1,4 +1,6 @@
 const ERR = document.getElementById('err');
+const AVG_OUTPUT = document.getElementById('output-avg');
+
 
 function updateDOM(input, id) {
     const divEl = document.querySelector(id);
@@ -20,6 +22,7 @@ function trackMPGandCost(miles, gallons, price) {
 }
 
 function calculateAvg(MY_DATA) {
+    AVG_OUTPUT.innerHTML=''
     const numberOfObj = MY_DATA.length;
     // let sumMPG = 0;
     // let sumTripCost = 0;
@@ -34,10 +37,10 @@ function calculateAvg(MY_DATA) {
 
         }
     })      //can set this inside or outside //do not need initializer here 
-    const avgMPG = Number((sums / numberOfObj).toFixed(2)); //we do not want to round this, make sure to set to number as math round will round the value, defeating the purpose
-    const avgTripCost = Number((sums / numberOfObj).toFixed(2));
-    updateDOM(`Average MPG is ${valueof.avgMPG}`, '#output-avg');
-    updateDOM(`Average Trip Cost is ${valueof.avgTripCost}`, '#output-avg');
+    const avgMPG = Number((sums.MPG / numberOfObj).toFixed(2)); //we do not want to round this, make sure to set to number as math round will round the value, defeating the purpose
+    const avgTripCost = Number((sums.tripCost / numberOfObj).toFixed(2));
+    updateDOM(`Average MPG is ${avgMPG}`, '#output-avg');
+    updateDOM(`Average Trip Cost is ${avgTripCost}`, '#output-avg');
 }
 
 function isFormValid(miles, gallons, price) {
