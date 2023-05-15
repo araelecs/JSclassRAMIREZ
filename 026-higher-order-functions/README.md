@@ -10,3 +10,6 @@
 #Leads to smaller functions (more organized, nice!)
 #function factory is not the same is factory function
 #write the logic once, and then apply the function to individual functions
+
+#My attempt
+#I have updated my code by adding our sums constant to our average MPG and average cost constants. That seemed to have fixed our first issue. The code runs, but I have not been able to identify how to change the code, it displays not a number. I tried to get it to display the value of our constants, but it did not solve the issue.
