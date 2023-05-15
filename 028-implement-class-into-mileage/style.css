@@ -1,0 +1,28 @@
+.centered {
+    /* Center the form on the page */
+    margin: 0 auto;
+    width: 700px;
+    /* Form outline */
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+}  
+
+.error {
+    color: red;
+}
+
+table, th, td {
+    border: 1px solid blue;
+    padding: 8px
+}
+
+table, th, td {
+    border:2px solid red;
+    padding: 8px
+}
+
+.tbl-btn {
+    border-radius: 4px;
+
+}
