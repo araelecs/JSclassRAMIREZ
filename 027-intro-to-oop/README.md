@@ -6,4 +6,6 @@
 
 #For the challenge, I was able to set getters and setters. I did figure out that we did not get "undefined" for our first name as we had established and used a getter and setter. I then added getters to the remaining elements of our console.log call and it eliminated the undefined error. However, now it displays code instead. I think this is a step towards the right direction though
 
-#
+#ALMOST had it, I had forgotten to add () to the end of the getters :P
+
+#It now works, I had also forgotten to create a setter and getter for our classlist. It is 100% working now! I just have to make sure not to forget the (), it keep forgetting them. Thanks Rio!

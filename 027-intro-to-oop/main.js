@@ -16,7 +16,7 @@ class Person { // in a class we must cap the first letter of the name
         return `${this._lastName}` //getter
     }
     setLastName(newLastName) {
-        this._LastName = newLastName //setter
+        this._lastName = newLastName //setter
     }
     getAddress() {
         return `${this._address}` //getter
@@ -25,17 +25,23 @@ class Person { // in a class we must cap the first letter of the name
         this._address = newAddress //setter
     }
     showStatus() {
-        console.log(`${this.getFirstName()} lives at ${this.getAddress}`)
+        console.log(`${this.getFirstName()} lives at ${this.getAddress()}`)
     }
 }
 
 class Student extends Person {
     constructor(firstName, lastName, address, classList) {
         super(firstName, lastName, address)
-        this.classList = classList
+        this._classList = classList
+    }
+    getClassList() {
+        return `${this._classList}` //getter
+    }
+    setClassList(newClassList) {
+        this._classList = newClassList //setter
     }
     showStatus() {
-        console.log(`${this.getFirstName} lives at ${this.getAddress} is taking ${this.classList}`)
+        console.log(`${this.getFirstName()} lives at ${this.getAddress()} is taking ${this.getClassList()}`)
     }
 
 }
