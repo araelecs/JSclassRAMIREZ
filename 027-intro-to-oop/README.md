@@ -1,0 +1,2 @@
+#Intro to OOP
+#Hey Rio, I understand the difference in syntax, but I still don't see why we would use this instead of our original method. I guess I will have to see when we start to include it in the code later on.
