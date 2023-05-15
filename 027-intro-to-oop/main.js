@@ -1,7 +1,7 @@
 class Person { // in a class we must cap the first letter of the name
-    constructor(firstName, lastname, address){
+    constructor(firstName, lastName, address){
         this.firstName = firstName //we use = instead of the : we are used to
-        this.lastname = lastname
+        this.lastName = lastName
         this.address = address
     }
     showStatus(){
@@ -10,8 +10,8 @@ class Person { // in a class we must cap the first letter of the name
 }
 
 class Student extends Person{
-    constructor(firstName, lastname, address, classList) {
-        super(firstName, lastname, address)
+    constructor(firstName, lastName, address, classList) {
+        super(firstName, lastName, address)
         this.classList = classList
     }
 
