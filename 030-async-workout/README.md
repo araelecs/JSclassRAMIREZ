@@ -1,0 +1,4 @@
+#I assume that the callback is what is passed into the thing1 function, it is then called back by the same function due to the callback() within the function, resulting in an endless loop of "callback hell". They callback for thing 1 and 2 could be the same if the input is the same, but they do not have to be. 
+
+#Challenge
+#I tried to do something similar to what ColorCode did in his video with the pizza app. I used the same outline, but changed the names of callback functions to match our index file. I also changed the time interval as we are looking to time 1 minute. I can see this being used in other ways such as pacing. Maybe we can have the app loop a 1 minute timer to let the user know that they should switch to a different workout or have the app run a certain amount of times so that they can keep track of how many times they have done their workout.
