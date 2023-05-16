@@ -2,3 +2,5 @@
 
 #Challenge
 #I tried to do something similar to what ColorCode did in his video with the pizza app. I used the same outline, but changed the names of callback functions to match our index file. I also changed the time interval as we are looking to time 1 minute. I can see this being used in other ways such as pacing. Maybe we can have the app loop a 1 minute timer to let the user know that they should switch to a different workout or have the app run a certain amount of times so that they can keep track of how many times they have done their workout.
+
+#Another thing we could make is a timer, it would be cool to make something simple but functional. I can also see this working as a study tool. I know quizlet has a timed quiz system that keeps track of how fast you can answer questions, which would be cool to make (in a much simpler way of course)
